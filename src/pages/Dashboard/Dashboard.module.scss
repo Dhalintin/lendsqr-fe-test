@@ -1,0 +1,107 @@
+@use "../../styles/variables/colors" as *;
+
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background: $bg;
+  font-family: "Work Sans", sans-serif;
+}
+
+.sidebar {
+  width: 260px;
+  background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  flex-shrink: 0;
+
+  @media (max-width: 1024px) {
+    width: 220px;
+  }
+
+  @media (max-width: 768px) {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 480px) {
+    width: 80%;
+  }
+
+  .logo {
+    padding: 24px 16px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    .logoImage {
+      height: 18px;
+      width: auto;
+    }
+
+    .logoText {
+      font-size: clamp(22px, 4.8vw, 24px);
+      font-weight: 600;
+      color: $dark;
+      text-transform: lowercase;
+    }
+  }
+}
+
+.mainContainer {
+  margin-left: 260px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media (max-width: 1024px) {
+    margin-left: 220px;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+}
+
+:global(.header) {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: $white;
+  border-bottom: 1px solid $border;
+  width: 100%;
+}
+
+.mainContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 36px 18px 72px;
+  margin-top: 54px;
+
+  @media (max-width: 768px) {
+    padding: 20px 14px 54px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 12px 48px;
+    margin-top: 46px;
+  }
+
+  .contentWrapper {
+    max-width: 1260px;
+    margin: 0 auto;
+  }
+}
+
+.title {
+  font-size: clamp(20px, 4.5vw, 22px);
+  font-weight: 600;
+  color: $dark;
+  margin-bottom: 14px;
+  letter-spacing: 0px;
+}

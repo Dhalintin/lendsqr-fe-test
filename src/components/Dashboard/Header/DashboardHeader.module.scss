@@ -1,0 +1,294 @@
+@use "../../../styles/variables/colors" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
+  z-index: 900;
+  height: 64px;
+  background: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 36px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+
+  @media (max-width: 1024px) {
+    left: 240px;
+    padding: 0 28px;
+  }
+
+  @media (max-width: 768px) {
+    left: 0;
+    padding: 0 20px;
+    height: 62px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .search {
+    flex: 1;
+    max-width: 280px;
+
+    input {
+      width: 100%;
+      padding: 10px 14px 10px 42px;
+      border: 1px solid $border;
+      border-radius: 8px;
+      font-size: clamp(11px, 2.1vw, 12px);
+      outline: none;
+      background: $bg;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: $light-gray;
+      }
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 2.5px rgba($primary, 0.15);
+      }
+    }
+
+    .searchIcon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $gray;
+      font-size: 17px;
+    }
+  }
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .avatar {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $purple;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .name {
+      font-weight: 500;
+      color: $dark;
+      font-size: clamp(12.5px, 2.3vw, 14px);
+    }
+
+    .notification {
+      position: relative;
+      font-size: 18px;
+      color: $gray;
+      cursor: pointer;
+
+      .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 13px;
+        height: 13px;
+        background: $red;
+        color: white;
+        font-size: 9px;
+        font-weight: 600;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid $white;
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.docsLink {
+  color: $primary;
+  font-size: clamp(12.5px, 2.3vw, 14px);
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.notificationBtn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  .bell {
+    height: 18px;
+    width: 18px;
+    color: $gray;
+  }
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: $red;
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $white;
+  }
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $purple;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .userName {
+    font-size: clamp(14px, 2.4vw, 16px);
+    font-weight: 600;
+    color: $dark;
+  }
+
+  .dropdownArrow {
+    font-size: 11px;
+    color: $gray;
+  }
+}
+
+.searchSection {
+  display: flex;
+  background: $white;
+  gap: 10px;
+  border: 2px solid $border;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  .searchField {
+    width: 100%;
+    height: 48px;
+    padding: 10px 8px 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-family: "Work Sans", sans-serif;
+    font-size: clamp(11px, 2.1vw, 12px);
+    color: $dark;
+    background: $white;
+    transition: all 0.2s ease;
+    outline: none;
+
+    &::placeholder {
+      color: $light-gray;
+      opacity: 0.7;
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.12);
+      background: $white;
+    }
+
+    @media (max-width: 768px) {
+      height: 44px;
+      padding: 0 18px 0 44px;
+      font-size: clamp(13.5px, 2.3vw, 14.5px);
+    }
+  }
+
+  .searchButton {
+    left: 14px;
+    background: $primary;
+    border: none;
+    padding: 11px;
+    cursor: pointer;
+    color: $gray;
+    transition: color 0.2s ease;
+    border-radius: 0px 6px 6px 0px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    @media (max-width: 768px) {
+      left: 12px;
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}
+
+.profileImage {
+  border-radius: 200px;
+  width: 46px;
+}

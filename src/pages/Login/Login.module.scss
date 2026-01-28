@@ -1,0 +1,302 @@
+@use "../../styles/variables/colors" as *;
+@use "sass:color";
+
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: $white;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left {
+  background: #f8faff;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 80px;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 100px;
+
+  .logoIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $primary;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 28px;
+  }
+
+  .logoText {
+    font-size: 36px;
+    font-weight: 700;
+    color: $primary;
+    text-transform: lowercase;
+  }
+}
+
+.illustrationImage {
+  height: 300px;
+}
+
+.illustrationContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.illustrationPlaceholder {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 0.9;
+  background: linear-gradient(135deg, #e6f0ff 0%, #f0f8ff 100%);
+  border-radius: 24px;
+  border: 2px solid rgba($primary, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  .character {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 220px;
+
+    .head {
+      width: 80px;
+      height: 80px;
+      background: #ffd166;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 8px solid #fff;
+    }
+
+    .body {
+      width: 100px;
+      height: 140px;
+      background: #39cdcc;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50px 50px 20px 20px;
+    }
+
+    .armLeft,
+    .armRight {
+      width: 60px;
+      height: 20px;
+      background: #ffd166;
+      position: absolute;
+      top: 60px;
+      border-radius: 20px;
+    }
+
+    .armLeft {
+      left: -20px;
+      transform: rotate(-30deg);
+    }
+    .armRight {
+      right: -20px;
+      transform: rotate(30deg);
+    }
+
+    .legLeft,
+    .legRight {
+      width: 30px;
+      height: 80px;
+      background: #ffd166;
+      position: absolute;
+      bottom: -10px;
+      border-radius: 20px;
+    }
+
+    .legLeft {
+      left: 20px;
+      transform: rotate(-15deg);
+    }
+    .legRight {
+      right: 20px;
+      transform: rotate(15deg);
+    }
+  }
+
+  .speechBubble {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 20%;
+      border: 10px solid transparent;
+      border-top-color: white;
+    }
+  }
+
+  .decorStars {
+    position: absolute;
+    font-size: 60px;
+    color: rgba($primary, 0.15);
+    top: 10%;
+    left: 10%;
+    transform: rotate(-15deg);
+  }
+}
+
+.credit {
+  margin-top: 40px;
+  font-size: 16px;
+  color: $gray;
+  text-align: center;
+}
+
+.right {
+  padding: 40px;
+
+  @media (max-width: 1024px) {
+    // padding: 3px;
+  }
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 480px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: $dark;
+  margin-bottom: 16px;
+
+  .accent {
+    color: $primary;
+  }
+}
+
+.subtitle {
+  color: $gray;
+  font-size: 18px;
+  margin-bottom: 48px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    font-size: 15px;
+    font-weight: 500;
+    color: $primary;
+  }
+
+  ::placeholder {
+    font-size: 15px;
+    color: $light-gray;
+    font-weight: 300px;
+  }
+
+  input {
+    padding: 16px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.12);
+    }
+  }
+}
+
+.passwordWrapper {
+  position: relative;
+
+  input {
+    padding-right: 100px;
+  }
+
+  .togglePassword {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $primary;
+    font-size: 12px;
+    font-weight: 300;
+    cursor: pointer;
+  }
+}
+
+.forgotPassword {
+  align-self: flex-end;
+  color: $primary;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -16px;
+}
+
+.submitButton {
+  background: $primary;
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: color.scale($primary, $lightness: -12%);
+  }
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin: 8px 0;
+  text-align: center;
+}

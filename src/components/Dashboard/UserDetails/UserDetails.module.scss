@@ -1,0 +1,342 @@
+@use "../../../styles/variables/colors" as *;
+
+.userDetailsHeader {
+  padding: 28px 18px;
+
+  @media (max-width: 1024px) {
+    padding: 20px 28px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 18px 14px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 12px;
+  }
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+
+  .backLink {
+    color: $dark;
+    font-size: clamp(14px, 2.4vw, 15px);
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 14px;
+
+    .actionBtn {
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: clamp(12.5px, 2.3vw, 13.5px);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+
+    .blacklist {
+      color: $danger;
+      border: 1px solid $danger;
+      background: none;
+    }
+
+    .activate {
+      color: $primary;
+      border: 1px solid $primary;
+      background: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.pageTitle {
+  font-size: clamp(20px, 4.5vw, 22px);
+  font-weight: 700;
+  color: $dark;
+  margin-bottom: 28px;
+}
+
+.userCard {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: $white;
+  border-radius: 26px;
+  padding: 18px;
+  margin-bottom: 28px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: $light-gray;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(30px, 6vw, 32px);
+    font-weight: bold;
+  }
+
+  .userInfo {
+    .name {
+      font-size: clamp(20px, 4.5vw, 22px);
+      font-weight: 700;
+      color: $dark;
+      margin-bottom: 7px;
+    }
+
+    .userId {
+      font-size: clamp(14px, 2.5vw, 15px);
+      color: $gray;
+    }
+  }
+}
+
+.tierSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: right;
+  border-right: 0.5px solid rgba($gray, 0.3);
+  border-left: 0.5px solid rgba($gray, 0.3);
+  padding: 18px 26px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    border-top: 0.5px solid rgba($gray, 0.3);
+    border-bottom: 0.5px solid rgba($gray, 0.3);
+    padding: 16px 20px;
+  }
+
+  .tier {
+    .tierLabel {
+      font-size: clamp(12.5px, 2.3vw, 13.5px);
+      color: $gray;
+      margin-bottom: 7px;
+      display: block;
+    }
+
+    .stars {
+      font-size: 22px;
+      color: $yellow;
+    }
+
+    .star-rating {
+      font-size: clamp(24px, 5vw, 26px);
+      color: #e0e0e0;
+      letter-spacing: 3.5px;
+      user-select: none;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: "★★★";
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #ffc107;
+        width: var(--rating-width, 0%);
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      &[data-rating="1"] {
+        --rating-width: 33.333%;
+      }
+      &[data-rating="2"] {
+        --rating-width: 66.666%;
+      }
+      &[data-rating="3"] {
+        --rating-width: 100%;
+      }
+    }
+  }
+}
+
+.amountSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
+  .balance {
+    .amount {
+      font-size: clamp(19px, 4.2vw, 20px);
+      font-weight: 500;
+      color: $dark;
+      display: block;
+    }
+
+    .bank {
+      font-size: clamp(12.5px, 2.3vw, 13.5px);
+      color: $gray;
+    }
+  }
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid $border;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 3px;
+  gap: 0;
+
+  .tab {
+    flex: 1 1 auto;
+    min-width: 108px;
+    padding: 14px 0;
+    background: none;
+    border: none;
+    font-size: clamp(14px, 2.5vw, 15px);
+    font-weight: 500;
+    color: $gray;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    white-space: nowrap;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.active {
+      color: $primary;
+      font-weight: 600;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: $primary;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .tab {
+      min-width: 90px;
+      font-size: clamp(12.5px, 2.3vw, 13.5px);
+      padding: 12px 0;
+    }
+  }
+}
+
+.userDetailsInfo {
+  padding: 9px;
+  border-radius: 10px;
+}
+
+.section {
+  padding: 28px 18px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionTitle {
+  font-size: clamp(13.5px, 2.4vw, 14.5px);
+  font-weight: 550;
+  color: $dark;
+  margin-bottom: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 28px 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid $border;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  label {
+    font-size: clamp(9px, 1.8vw, 10px);
+    font-weight: 500;
+    color: $gray;
+    text-transform: uppercase;
+    letter-spacing: 0.45px;
+  }
+
+  p {
+    font-size: clamp(12.5px, 2.3vw, 13.5px);
+    font-weight: 550;
+    color: $gray;
+  }
+}
+
+.userSection {
+  background: $white;
+  border-radius: 5px;
+}
+
+.detailsSection {
+  background: $white;
+  margin: 4px 14px;
+  border-radius: 5px;
+}

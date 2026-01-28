@@ -1,0 +1,28 @@
+@use "./variables/colors" as *;
+@use "./base/reset";
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: $background;
+  color: $primary;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}

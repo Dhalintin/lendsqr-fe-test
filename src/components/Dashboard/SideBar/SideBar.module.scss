@@ -1,0 +1,110 @@
+@use "../../../styles/variables/colors" as *;
+
+.sidebar {
+  width: 260px;
+  background: $white;
+  height: 88vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  flex-shrink: 0;
+  z-index: 100;
+  margin-top: 68px;
+
+  @media (max-width: 1024px) {
+    width: 220px;
+    margin-top: 64px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid $border;
+    margin-top: 0;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 16px;
+  }
+}
+
+.logo {
+  padding: 26px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .logoIcon {
+    width: 44px;
+    height: 44px;
+    background: $primary;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: clamp(24px, 5vw, 26px);
+  }
+
+  .logoText {
+    font-size: clamp(22px, 4.8vw, 24px);
+    font-weight: 600;
+    color: $dark;
+    text-transform: lowercase;
+  }
+}
+
+.nav {
+  padding: 0 20px;
+}
+
+.section {
+  margin-bottom: 36px;
+
+  .title {
+    font-size: clamp(11px, 2vw, 12px);
+    font-weight: 600;
+    color: $light-gray;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: $gray;
+  font-size: clamp(14px, 2.5vw, 15px);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($primary, 0.08);
+    color: $primary;
+  }
+
+  &.active {
+    background: rgba($primary, 0.12);
+    color: $primary;
+    font-weight: 600;
+  }
+
+  .icon {
+    font-size: 22px;
+    width: 16px;
+    text-align: center;
+  }
+}
+
+.space {
+  margin: 4px 0 10px 0;
+}
