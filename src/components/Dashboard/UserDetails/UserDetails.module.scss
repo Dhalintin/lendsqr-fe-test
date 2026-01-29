@@ -156,38 +156,20 @@
       display: block;
     }
 
-    .stars {
-      font-size: 22px;
-      color: $yellow;
+    .starRating {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 24px;
+      color: #e0e0e0;
+      user-select: none;
     }
 
-    .star-rating {
-      font-size: clamp(24px, 5vw, 26px);
-      color: #e0e0e0;
-      letter-spacing: 3.5px;
-      user-select: none;
-      position: relative;
-      display: inline-block;
+    .star {
+      transition: color 0.2s ease;
 
-      &::after {
-        content: "★★★";
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: #ffc107;
-        width: var(--rating-width, 0%);
-        overflow: hidden;
-        white-space: nowrap;
-      }
-
-      &[data-rating="1"] {
-        --rating-width: 33.333%;
-      }
-      &[data-rating="2"] {
-        --rating-width: 66.666%;
-      }
-      &[data-rating="3"] {
-        --rating-width: 100%;
+      &.filled {
+        color: $yellow;
       }
     }
   }

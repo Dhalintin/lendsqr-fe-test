@@ -63,8 +63,21 @@ export default function UserDetails({
             <div className={styles.tierSection}>
               <div className={styles.tier}>
                 <span className={styles.tierLabel}>User's Tier</span>
-                <div className={styles.stars} data-rating={user.tier}>
+                {/* <div className={styles.stars} data-rating={user.tier}>
                   ★ ★ ★
+                </div> */}
+
+                <div className={styles.starRating}>
+                  {[1, 2, 3].map((star) => (
+                    <span
+                      key={star}
+                      className={`${styles.star} ${
+                        star <= user.tier ? styles.filled : ""
+                      }`}
+                    >
+                      ★
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
